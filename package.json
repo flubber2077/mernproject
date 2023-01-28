@@ -6,7 +6,8 @@
   "scripts": {
     "prestart": "babel ./src --out-dir build",
     "start": "node ./build/bin/www",
-    "startdev": "nodemon --exec babel-node ./src/bin/www"
+    "startdev": "nodemon --exec babel-node ./src/bin/www",
+    "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register"
   },
   "dependencies": {
     "@babel/cli": "^7.20.7",
@@ -18,9 +19,18 @@
     "@babel/runtime": "^7.20.13",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.20"
+    "nyc": "^15.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "coveralls": "^3.1.1",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.20",
+    "sinon-chai": "^3.7.0",
+    "supertest": "^6.3.3"
   }
 }
